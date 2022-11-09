@@ -1,10 +1,11 @@
 {
-  "name": "babel-tutorial",
-  "version": "1.0.0",
+  "name": "@guoguolong/babel-tutorial",
+  "version": "1.0.2",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "build": "npx babel index.js -o dist/index.js",
+    "pub": "npm pub --access public",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Allen Guo",
