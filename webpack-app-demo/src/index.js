@@ -13,4 +13,14 @@ const demo = () => {
   console.log('Demo: ', z)
 }
 
+
+const request = (text) => {
+  return new Promise((resolve, reject)=>{
+    resolve('Request ' + text);
+  })
+}
+request('http').then(resp=>{
+  console.log(resp)
+})
+
 demo();
