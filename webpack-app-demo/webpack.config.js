@@ -7,7 +7,7 @@ module.exports = {
         test: /\.m?js$/,
         include: [
           /src/,
-          /node_modules\/@guoguolong\/babel-tutorial/
+        //   /node_modules\/@guoguolong\/babel-tutorial/
         ],
         use: {
           loader: 'babel-loader',
@@ -17,5 +17,8 @@ module.exports = {
         }
       }
     ],
-  }
+  },
+  optimization: {
+    minimize: false,
+  },  
 };
