@@ -1,5 +1,11 @@
 // import "core-js";
 
+class Person {
+  sayname() {
+    return 'name'
+  }
+}
+
 export const asynFunc = (text) => {
   return new Promise((resolve, reject)=>{
     resolve('Async Call ' + text);
