@@ -56,5 +56,11 @@ declare const globalPool;
 /// <reference path="./index.d.ts" />
 ```
 
+## `declare module "modulename" {}`和 `declare module modulename {}`
+
+后者 `declare module modulename {}` （不带引号）用作命名空间，现在弃用，用`declare namespace
+ modulename {}`替换。
+
 ## TODO
 * namespace 场景、用法
+
