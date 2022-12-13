@@ -45,3 +45,16 @@ interface Window {
 declare const globalPool;
 ```
 这样，ts 文件里使用 `console.log(globalPool)`不会报红
+
+## global.d.ts 更名或移动到不同目录如何引用
+
+一般来说，`global.d.ts`文件可以更改为'.d.ts'结尾的任意名，放在项目根目录下和任何子目录下均可被自动加载。
+
+但是，如果移动到`src`目录下更名后，存在同名的 `.ts`文件，必须在源代码文件顶部明确引入。
+比如 `global.d.ts` 移动为 `src/index.d.ts`，由于该目录存在 `index.ts`，需要像下面这种方法引入TS定义：
+```ts
+/// <reference path="./index.d.ts" />
+```
+
+## TODO
+* namespace 场景、用法
