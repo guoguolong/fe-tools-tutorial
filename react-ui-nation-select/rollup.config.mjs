@@ -4,6 +4,7 @@ import RollupNodeResolve from '@rollup/plugin-node-resolve';
 import RollupCommonjs from '@rollup/plugin-commonjs';
 import RollupTypescript from 'rollup-plugin-typescript2';
 import RollupCopy from 'rollup-plugin-copy';
+import autoprefixer from 'autoprefixer'
 import postcss from 'rollup-plugin-postcss';
 import image from '@rollup/plugin-image';
 import { createRequire } from 'node:module';
@@ -49,7 +50,12 @@ export default {
   external: externalpkgs,
   plugins: [
     postcss({
-      inject: false
+      extract: 'index.css',
+      plugins: [
+        autoprefixer({
+          // grid: "autoplace"
+        })
+      ]
     }),
     // StylesWeed(),
     image(),
@@ -67,23 +73,23 @@ export default {
       tsconfigOverride,
       include: [
         'src/**/*',
-        'node_modules/query-string/**/*'
+        'node_modules/**/query-string/**/*'
       ]
     }),
-    RollupCopy({
-      targets: [
-        {
-          src: [
-            `src/*.less`,
-          ],
-          dest: resolveFile('dist')
-        },        {
-          src: [
-            `src/*.less`,
-          ],
-          dest: resolveFile('lib')
-        },
-      ]
-    })
+    // RollupCopy({
+    //   targets: [
+    //     {
+    //       src: [
+    //         `src/*.less`,
+    //       ],
+    //       dest: resolveFile('dist')
+    //     },        {
+    //       src: [
+    //         `src/*.less`,
+    //       ],
+    //       dest: resolveFile('lib')
+    //     },
+    //   ]
+    // })
   ]
 };

@@ -1,2 +1,12 @@
-import NationSelect from './JobSelect';
-export default NationSelect;
+import NationSelect from './NationSelect';
+import CitySelect from './CitySelect';
+
+export {
+  NationSelect,
+  CitySelect  
+}
+
+export default {
+  NationSelect,
+  CitySelect
+};

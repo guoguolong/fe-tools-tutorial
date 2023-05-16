@@ -2,7 +2,7 @@ import { FunctionComponent } from 'react';
 
 export interface NationSelectProps {
   bgColor: string;
-  text?: string;
+  name?: string;
 }
 
 declare const NationSelect: FunctionComponent<NationSelectProps>;
