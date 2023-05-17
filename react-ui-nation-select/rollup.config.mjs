@@ -16,6 +16,7 @@ const pkg = require('./package.json');
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const resolveFile = path => NodePath.resolve(__dirname, path);
+const flexGapPolyfill = require('flex-gap-polyfill');
 
 const externalpkgs = [
   'react',
@@ -52,6 +53,7 @@ export default {
     postcss({
       extract: 'index.css',
       plugins: [
+        flexGapPolyfill(),
         autoprefixer({
           // grid: "autoplace"
         })
