@@ -1,12 +1,8 @@
 * tsx
     * js syntax (es5/es6)
-    * js api compatibility
+    * js api 浏览器兼容性
 
 * less
     * css syntax
-        * css compatibility (browserslist + postcss)
-            * autoprefixer 
-                * e.g. ie11: user-select
-            * polyfill
-                * e.g. ie11: flex-gap-polyfill
-
+            * 浏览器兼容性 prefixer 
+            * 浏览器兼容性 polyfill
