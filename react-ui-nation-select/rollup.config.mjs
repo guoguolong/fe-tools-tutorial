@@ -48,6 +48,9 @@ export default {
       sourcemap: true
     }    
   ],
+  treeshake: {
+    moduleSideEffects: false
+  },
   external: externalpkgs,
   plugins: [
     postcss({

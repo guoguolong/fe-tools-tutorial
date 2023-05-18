@@ -1,5 +1,6 @@
 import React from 'react';
 import queryString from 'query-string';
+import 'babel-polyfill'
 import './NationSelect.less';
 
 const parsed: any = queryString.parse(location.search);

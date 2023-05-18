@@ -39,6 +39,7 @@
     "build:all": "npm run clean && yarn run build"
   },
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
     "query-string": "^8.1.0"
   },
   "devDependencies": {
