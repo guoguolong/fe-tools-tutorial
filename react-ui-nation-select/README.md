@@ -1,15 +1,17 @@
-## Installation
+## User Guide
 
-```
-npm i @guoguolong/react-ui-component
+### Installation
+
+```bash
+npm i @guoguolong/react-ui-nation-select
 ```
 
-## Usage
+### Usage
 
 ```jsx
-import JobSelect from '@guoguolong/react-ui-component'
+import NationSelect from '@guoguolong/react-ui-nation-select'
 export default () => {
-	return <div><JobSelect bgColor="lightgreen" /></div>
+	return <div><NationSelect bgColor="lightgreen" /></div>
 }
 ```
 
@@ -28,6 +30,25 @@ package.json中的 sideEffects是 webpack使用的，rollup 使用配置
 
 `NationSelect.tsx` 中的 `import 'babel-polyfill'`是个例子
 
+### polyfill
+
+推崇 https://polyfill.io! 对于App项目（和Lib项目相对），入口html加入: 
+
+```html
+<script type="text/javascript" src="https://polyfill.io/v3/polyfill.min.js"></script>
+```
+不同浏览器运行时就会返回相应的Polyfill方法。
+
+可以给使用 https://polyfill.io/v3/url-builder 构建带有参数的 ployfill，如使支持 es7：
+
+```
+https://polyfill.io/v3/polyfill.min.js?features=es7 
+```
+于是可以支持 NationSelect中的`Array.incldue`函数的使用：
+
+```js
+['allen', 'koda', 'judy'].includes(parsed.name) ? 1 : 0
+```
 
 ### 插件用途
 
