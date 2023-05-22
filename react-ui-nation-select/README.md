@@ -1,3 +1,5 @@
+[TOC]
+
 ## User Guide
 
 ### Installation
@@ -30,6 +32,7 @@ package.json中的 sideEffects是 webpack使用的，rollup 使用配置
 
 `NationSelect.tsx` 中的 `import 'babel-polyfill'`是个例子
 
+
 ### polyfill
 
 推崇 https://polyfill.io! 对于App项目（和Lib项目相对），入口html加入: 
@@ -50,11 +53,67 @@ https://polyfill.io/v3/polyfill.min.js?features=es7
 ['allen', 'koda', 'judy'].includes(parsed.name) ? 1 : 0
 ```
 
+## ES.Y -> ES.Y transpile
+
+### 1. tsc 编译 - 使用 rollup-plugin-typescript2 插件
+
+#### ES Target设置
+
+tsc的设置都在 tsconfig.json里
+
+#### 使 node_modules 下的包参与 transpile.
+
+下面例子设置使 query-string 参与 transpile
+```js
+    RollupTypescript({
+      include: [
+        'src/**/*',
+        'node_modules/**/query-string/**/*'
+      ]
+    }
+```
+
+### 2. esbuild 编译 - 使用 rollup-plugin-esbuild 插件
+
+替代 `rollup-plugin-typescript2`， esbuild编译最低可以转到es6，不支持es5。
+
+#### ES Target设置
+
+例：NationSelect.tsx 使用了es2017特性async/await、es2018的`...`增强语法如下：
+```tsx
+  // async/awwait - es2017
+  const getRemoteData = async () => {
+    await parsed.data? 'data1:':'default-data';
+  }
+
+  // ...扩展语法 - es2018
+  const people = {
+    nickname: 'allen',
+    gender: 'male',
+  }
+  const es2018_chineseInfo = {...people, hobby: 'Basketball'};
+```
+尝试调整`esbuild.target`参数为 `es6`、`es1017`、`es2018`， 运行`pnpm build`看看 esbuild是怎样 transpile的。
+
+#### 使 node_modules 下的包参与 transpile.
+本项目也示例了 node_modules下的包transpile，以`query-string`为例，排除非`query-string`，即可使之参与transpile：
+```js
+  esbuild({
+    exclude: [
+      /!query-string/,
+    ]    
+  })
+```
+
+### 3. babel
+
+TODO
+
 ### 插件用途
 
 * @rollup/plugin-node-resolve
 
-这个插件使引入的 node_modules 下的库可以被打包到目标.js文件中。
+这个插件使引入的 node_modules 下的库可以被打包到目标.js文件中，即：和项目源代码同等大家，根据配置 transpile 为指定的目标js版本。
 
 * rollup-plugin-typescript2
 
