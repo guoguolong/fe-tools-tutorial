@@ -13,7 +13,7 @@ npm i @guoguolong/react-ui-nation-select
 ```jsx
 import NationSelect from '@guoguolong/react-ui-nation-select'
 export default () => {
-	return <div><NationSelect bgColor="lightgreen" /></div>
+  return <div><NationSelect bgColor="lightgreen" /></div>
 }
 ```
 
