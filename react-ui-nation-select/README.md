@@ -24,6 +24,7 @@ export default () => {
 
 * ES5浏览器：firefox 27 (https://ftp.mozilla.org/pub/firefox/releases/)
 * chome55：https://www.slimjet.com/chrome/google-chrome-old-version.php 
+
  chome55 发行于 2016-12-09，所以支持 ES2016，但不支持 ES2017、ES2018等更高版本.
 
 ### sideEffects
@@ -104,11 +105,13 @@ tsc的设置都在 tsconfig.json里
 ##### 使 node_modules 下的包参与 transpile.
 本项目也示例了 node_modules下的包transpile，以`query-string`为例，排除非`query-string`，即可使之参与transpile：
 ```js
-  esbuild({
-    exclude: [
-      /!query-string/,
-    ]    
-  })
+  plugins: [
+    esbuild({
+      exclude: [
+        /!query-string/,
+      ]
+    })
+  ]
 ```
 
 #### C. babel
