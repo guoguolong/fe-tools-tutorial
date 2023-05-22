@@ -23,9 +23,9 @@ export default () => {
 ### 准备旧版浏览器
 
 * ES5浏览器：firefox 27 (https://ftp.mozilla.org/pub/firefox/releases/)
-* chome55：https://www.slimjet.com/chrome/google-chrome-old-version.php 
+* ES6浏览器：https://www.slimjet.com/chrome/google-chrome-old-version.php 
 
- chome55 发行于 2016-12-09，所以支持 ES2016，但不支持 ES2017、ES2018等更高版本.
+ 下载chrome55，其发行于 2016-12-09，所以支持 ES2016，但不支持 ES2017、ES2018等更高版本.
 
 ### sideEffects
 
